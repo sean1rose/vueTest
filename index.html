@@ -10,9 +10,13 @@
   <body>
     <div id="app">
       <input type="text" v-on:input="changeTitle">
-      <p>{{ title }}</p>
+      <p>{{ sayHello() }}</p>
     </div>
     <script>
+      // new vue.js instance (not even stored in a variable)
+        // creates a template based on html code, stores internally, then uses to create real html code rendered to the dom
+        // *vue.js instance -> takes html code -> creates template -> renders template -> outputs final rendered html
+        // vuejs is the layer in the middle
       new Vue({
         el: '#app',
         data: {
@@ -21,6 +25,9 @@
         methods: {
           changeTitle: function(event) {
             this.title = event.target.value;
+          },
+          sayHello: function() {
+            return 'YO!';
           }
         }
       });
